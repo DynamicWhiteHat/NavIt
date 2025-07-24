@@ -44,3 +44,28 @@ I added in a quick TP4056 charging circuit and SPI SD card reader and now this i
 <img width="1318" height="638" alt="image" src="https://github.com/user-attachments/assets/9e636b43-5d3a-46e9-8a23-f80c6f63d095" />
 
 ## Time Spent: 8 Hours (I didn't know what I was doing at all)
+
+## JUNE 20th: Worked On PCB
+
+Today I worked on the PCB. I imported the component footprints from the schematic and started placing them in good spots. I checked the size of the E-ink display, which had an active size of 99x53 mm. I decided to make the PCB a bit smaller than that, at 90x50 mm. I started by placing the ESP-32 down and the corresponding buttons. Then I placed the larger modules on the back, such as the GPS, E-Ink adapter, and the microphone, although I did place the sd card reader on the front as I thought it would be better there. I then placed the various capacitors and resistors around the board, trying to keep the trace lengths to a minimum to avoid difficult routing. After I placed all the components, this is what my layout looked like:
+<img width="1392" height="715" alt="image" src="https://github.com/user-attachments/assets/fc36530a-abf3-4300-ad9d-615164959f6e" />
+
+I first started routing my USB C connector, as those have specific requirements like short trace lengths that must be routed as differential pairs. After a couple attempts and some moving of surrounding components, I was able to get a routing that I liked:
+
+| <img width="860" height="602" alt="image" src="https://github.com/user-attachments/assets/b3a88ea6-b55b-44b9-a4c9-495d7266f046" /> |
+|------------------------------------------------------------------------------------------------------------------------------------|
+| The highlighted traces are for USB                                                                                                 |
+
+Next, I went on to route various resistors, capacitors, and other components like the AMS 1117. I made sure to keep the traces on the front side of the board at most times to make it easier to route the components that are on the back side of the board. This was relatively easy at first, but then I started running into space constraints and had to move components around.
+
+Then, I finally routed the larger components and modules on the back. Once again, at first, this was relatively easy, but as I started adding more traces and more vias, space began getting constrained again. I had to move components around and place lots of vias for the ground pour, but I eventually routed all the traces. I ran DRC and found this error: "rear solder mask aperture bridges items with different nets"
+for this footprint:
+
+<img width="269" height="480" alt="image" src="https://github.com/user-attachments/assets/b283d33f-5291-415b-9c5a-69f549033b07" />
+
+I decided to change the footprint and reroute, which fixed the issue. This is my final PCB:
+
+| <img width="1058" height="591" alt="image" src="https://github.com/user-attachments/assets/94be7f55-0e77-477b-a9cf-56c41384c8d1" /> | <img width="1126" height="625" alt="image" src="https://github.com/user-attachments/assets/9a86076f-0947-4d8d-a2f2-89843595692c" /> |
+|-------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
+
+## Time Spent: 3 Hours
