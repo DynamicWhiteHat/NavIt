@@ -5,6 +5,7 @@ description: "An ESP-32 Powered Bicycle Navigation Display"
 created_at: "2025-07-17"
 ---
 
+# Total Time Spent: 15 Hours
 
 ## JUNE 17th: Selected Parts And Worked On PCB
 
@@ -69,3 +70,36 @@ I decided to change the footprint and reroute, which fixed the issue. This is my
 |-------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
 
 ## Time Spent: 3 Hours
+
+## JULY 25th: Work on CAD
+
+I started the CAD model (final step) by importing the 3D model of my PCB. When designing my PCB, I made sure to include mounting holes to fit it in my case. I was only able to fit 2 holes however, as my tracks took up most of the room. After importing my model and placing it in my design, I created a box to serve as my screen, whose dimensions I was able to find online.
+
+<img width="949" height="633" alt="image" src="https://github.com/user-attachments/assets/a5698ef4-4efd-462d-a09a-e366890a6e6e" />
+
+Using these dimensions, I created a 53 x 92.99 x 1.48 mm box. I then created another rectangle with a 3 mm extra offset to serve as the starting point for my case. 
+
+<img width="820" height="530" alt="image" src="https://github.com/user-attachments/assets/17226dda-19b7-429d-a847-e227dd67e2b5" />
+
+I extruded this to a total height of 15 mm, which was the thinnest I could get it without having PCB intersection. I chamfered the top and filleted the edges to make it look better. Then I got started on the SD card reader. I decided that instead of making the whole case ~2-3 mm thicker, I would just have the SD card reader stick out of the bottom. I got to work on modeling the surrounding case for this. I first started by projecting the outline of the reader module onto a sketch and I offset it by 0.2 mm for tolerance. Then I extruded the sketch, filled in some gaps, and shelled out the inside to make the module fit. This is what it looks like:
+
+<img width="395" height="174" alt="image" src="https://github.com/user-attachments/assets/27d452c0-b4ec-432a-ac8f-bb1e6bcb9593" />
+
+Then, I found [this](https://www.aliexpress.us/item/2251832771270728.html?spm=a2g0o.productlist.main.9.3b8916cbTB4CAV&algo_pvid=53d65af2-e75c-43b6-b8a8-528f2d952575&algo_exp_id=53d65af2-e75c-43b6-b8a8-528f2d952575-8&pdp_ext_f=%7B%22order%22%3A%2214%22%2C%22eval%22%3A%221%22%7D&pdp_npi=4%40dis%21USD%211.96%211.96%21%21%211.96%211.96%21%4021010c9a17533661061752015eab2a%2112000038633819755%21sea%21US%216238534509%21X&curPageLogUid=CJwRwmCtRMmG&utparam-url=scene%3Asearch%7Cquery_from%3A) speaker on AliExpress, and modeled it using its dimensions. The best location I found for it without having to add a sidebar was to put it right under the screen and add some holes in the side for the sound to go through. I created a box and used the combine feature with cut selected to create a cavity for the speaker. I added four 1 mm holes on the side. This is how it looks:
+
+<img width="500" height="253" alt="image" src="https://github.com/user-attachments/assets/b589031e-46c7-480f-a628-720d30dbfe60" />
+
+I added the same hole feature near the microphone in an attempt to allow sound in, though I'm not sure how well it will work. Next, I quickly made a textured cap for the switch, as it was currently too deep inside the case to be switched on or off. I made some standoffs for the screws and added a mounting piece on the bottom, consisting of 3 extruded rectangles with a 3 mm hole for an m3 screw. This is my final top design:
+
+<img width="695" height="362" alt="image" src="https://github.com/user-attachments/assets/f978ea6c-68f5-45c9-834e-c08c119e8939" />
+
+Next, I used the same mount sketch to make 2 interweaving mount pieces that complemented the 3 connected to the case. I added a base and a cylinder to wrap around a bicycle handlebar. This was my first time successfully using the loft tool, and I think it worked well. This is how the loft creation looks:
+
+ <img width="551" height="483" alt="image" src="https://github.com/user-attachments/assets/bfe3c26c-d35c-4124-b99e-907493bca6df" />
+
+ Finally, I used the box extrusion tool to add a clip on the end of the clamp, once again adding a m3 hole. That was the final step of my design. This is the whole design:
+
+<img width="640" height="549" alt="image" src="https://github.com/user-attachments/assets/7abb7d3e-7a8d-44b8-a03d-66a8b36732ea" />
+
+## Time spent: 4 hours
+
